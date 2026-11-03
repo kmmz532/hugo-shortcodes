@@ -5,9 +5,10 @@
   {{- $alt = index . 0 1 -}}
   {{- $width = index . 0 2 -}}
 {{- end -}}
-{{- /* / で始まる URL には、サイトの baseURL のパス（サブパス）を付ける */ -}}
+{{- /* / で始まる URL には、サイトの baseURL のパス（サブパス）を付ける。すでにそのパスで始まるものは、そのまま使う */ -}}
 {{- $src := .Destination -}}
-{{- if and (hasPrefix $src "/") (not (hasPrefix $src "//")) -}}
+{{- $base := site.Home.RelPermalink -}}
+{{- if and (hasPrefix $src "/") (not (hasPrefix $src "//")) (or (eq $base "/") (not (hasPrefix $src $base))) -}}
   {{- $src = relURL (strings.TrimPrefix "/" $src) -}}
 {{- end -}}
 <img src="{{ $src | safeURL }}" alt="{{ $alt }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ with $width }} width="{{ . }}"{{ end }}>

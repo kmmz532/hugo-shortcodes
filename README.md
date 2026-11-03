@@ -29,6 +29,7 @@ hugo mod get github.com/kmmz532/hugo-shortcodes@v0.1.0
 
 ## 本体（テーマ）との契約
 
+- 画像の URL が `/` で始まるときは、サイトの `baseURL` のパス（サブパス）を付けて出力します（`/images/a.png` は、`/blog/` に置いたサイトでは `/blog/images/a.png` になる）。
 - `link-card` は次のクラス名を出力します: `link-card`・`link-card-body`・`link-card-title`・`link-card-desc`・`link-card-host`・`link-card-thumb`。テーマはこれらのクラスに見た目を当てます。
 - 埋め込みは次のクラス名で囲みます: `video-embed`・`twitter-tweet`・`instagram-embed`・`facebook-embed`・`audio-embed`。
 - 記事の書式が解釈できないときは `shortcode-error` を出します。

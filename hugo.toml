@@ -1,0 +1,9 @@
+# この部品の単体の設定（確認用）。取り込むサイトの設定は含まれない
+baseURL = "https://example.org/"
+languageCode = "ja"
+title = "hugo-shortcodes"
+
+[module]
+  [module.hugoVersion]
+    min = "0.141.0"
+    extended = true
